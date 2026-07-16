@@ -85,7 +85,7 @@ const Navbar = () => {
             </ul>
 
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1CNHHfiTTN5NciGNqI5OBmauJCxa4J2vz/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-6 w-full text-center px-5 py-3 rounded-xl bg-blue-500 text-white font-medium hover:bg-blue-600 transition-all duration-300"
