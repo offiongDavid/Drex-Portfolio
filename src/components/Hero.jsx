@@ -6,6 +6,7 @@ import {
   FaCode,
 } from "react-icons/fa";
 import { HiArrowDown } from "react-icons/hi";
+import { FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -30,7 +31,7 @@ const Hero = () => {
 
           {/* heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
-            Hi, I’m <span className="text-white">Drex</span>
+            Hi, I’m <span className="text-white"> David</span>
             <span className="block text-blue-500">Software Developer</span>
             Crafting Digital Products.
           </h1>
@@ -45,14 +46,24 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
               href="#projects"
-              className="px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-medium shadow-lg shadow-blue-500/10 transition-all duration-300"
+              className="px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-medium shadow-lg shadow-blue-500/10 transition-all duration-300 text-center"
             >
               View Projects
             </a>
 
             <a
+              href="https://drive.google.com/file/d/1CNHHfiTTN5NciGNqI5OBmauJCxa4J2vz/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500 hover:text-blue-400 font-medium transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <FiDownload className="text-lg" />
+              Resume
+            </a>
+
+            <a
               href="#contact"
-              className="px-8 py-4 rounded-xl border border-slate-700 hover:border-teal-400 hover:text-teal-400 font-medium transition-all duration-300"
+              className="px-8 py-4 rounded-xl border border-slate-700 hover:border-teal-400 hover:text-teal-400 font-medium transition-all duration-300 text-center"
             >
               Let’s Talk
             </a>
@@ -60,13 +71,28 @@ const Hero = () => {
 
           {/* socials */}
           <div className="flex items-center gap-5 text-xl">
-            <a href="https://github.com/offiongDavid" className="text-slate-400 hover:text-white transition">
+            <a
+              href="https://github.com/offiongDavid"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition"
+            >
               <FaGithub />
             </a>
-            <a href="www.linkedin.com/in/offiong-david-39933541b" className="text-slate-400 hover:text-blue-500 transition">
+            <a
+              href="https://www.linkedin.com/in/offiong-david-39933541b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-500 transition"
+            >
               <FaLinkedin />
             </a>
-            <a href="https://x.com/DavidOffiong11" className="text-slate-400 hover:text-sky-400 transition">
+            <a
+              href="https://x.com/DavidOffiong11"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-sky-400 transition"
+            >
               <FaTwitter />
             </a>
           </div>
