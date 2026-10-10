@@ -1,5 +1,9 @@
+
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaArrowRight } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
+
 import oilSpil from "../assets/oil-spill.jpg";
 import disease from "../assets/disease.png";
 
@@ -10,95 +14,105 @@ const Projects = () => {
     {
       title: "Elevator Portfolio Website",
       description:
-        "A modern animated portfolio website for an elevator company showcasing services, projects, and company profile.",
-      tech: ["React", "Tailwind", "GSAP"],
+        "A company website presenting elevator services, completed projects, and company information.",
+      tech: ["React", "Tailwind CSS", "GSAP"],
       live: "https://your-live-link.com",
       code: "https://github.com/offiongDavid/MATO-Elevators",
-      image: "https://ik.imagekit.io/u9vfp7lad/matoelevators%20.png",
+      image:
+        "https://ik.imagekit.io/u9vfp7lad/matoelevators%20.png",
       category: "Websites",
+      number: "01",
     },
     {
       title: "Temple Schools Website",
       description:
-        "A modern school website designed for Temple Schools featuring academics, events, admissions, and responsive layouts.",
-      tech: ["React", "Tailwind"],
+        "A school website bringing together academic information, admissions, events, and school updates.",
+      tech: ["React", "Tailwind CSS"],
       live: "https://www.templeschoolng.com/",
       code: "https://github.com/offiongDavid/Temple-School",
       image: "https://ik.imagekit.io/u9vfp7lad/templework.png",
       category: "Websites",
+      number: "02",
     },
     {
       title: "Registration & Payment Platform",
       description:
-        "A registration system integrated with Paystack payment gateway for secure online payments and user registration.",
-      tech: ["React", "Tailwind", "Paystack API"],
+        "A registration platform that connects user sign-up with online payments through Paystack.",
+      tech: ["React", "Tailwind CSS", "Paystack"],
       live: "https://xovastudios.onrender.com/",
       code: "https://github.com/offiongDavid/Webinar_Url",
       image:
         "https://ik.imagekit.io/u9vfp7lad/Screenshot%202026-05-11%20175800_edited.png",
       category: "Fullstack",
+      number: "03",
     },
     {
       title: "AI Plagiarism Detection Platform",
       description:
-        "An AI-powered plagiarism checker that analyzes submitted content and detects duplicate or copied text.",
+        "A text analysis application designed to help identify potentially copied or matching content.",
       tech: ["React", "AI", "Node.js"],
       live: "",
       code: "https://github.com/offiongDavid/plagiarismSite",
       image: "https://ik.imagekit.io/u9vfp7lad/project6.png",
       category: "AI / ML",
+      number: "04",
     },
     {
       title: "AI Fake News Detector",
       description:
-        "A machine learning based application that detects and analyzes fake news content using AI models.",
+        "An application exploring how machine learning can help analyse news content for misleading claims.",
       tech: ["React", "Python", "Machine Learning"],
       live: "",
       code: "https://github.com/offiongDavid/FAKENEWS",
       image:
         "https://i.pinimg.com/736x/a9/11/c9/a911c93ca5afbfa5793eb13d88d79478.jpg",
       category: "AI / ML",
+      number: "05",
     },
     {
       title: "Oil Spill Detection Platform",
       description:
-        "An image analysis system that detects oil spillage in uploaded images using computer vision and AI.",
-      tech: ["React", "AI", "Computer Vision"],
+        "An image-analysis project focused on identifying oil spillage in uploaded images.",
+      tech: ["React", "Computer Vision", "AI"],
       live: "",
-      code: "https://github.com/your-repo",
+      code: "",
       image: oilSpil,
       category: "AI / ML",
+      number: "06",
     },
     {
       title: "Logistics Company Website",
       description:
-        "A responsive logistics and delivery company website with service sections, tracking UI, and contact integration.",
-      tech: ["React", "Tailwind"],
+        "A logistics website showcasing delivery services, company information, and contact options.",
+      tech: ["HTML", "CSS", "JavaScript"],
       live: "https://rapidityllc.com/Rapidity-logistics/index.html",
       code: "",
       image: "https://ik.imagekit.io/u9vfp7lad/logisticspage.png",
       category: "Websites",
+      number: "07",
     },
     {
       title: "Weather Application",
       description:
-        "A weather forecasting application built with React and Tailwind that displays real-time weather information.",
-      tech: ["React", "Tailwind", "Weather API"],
-      live: "https://your-live-link.com",
-      code: "https://github.com/your-repo",
+        "A weather app that presents current conditions and forecasts using weather API data.",
+      tech: ["React", "Tailwind CSS", "Weather API"],
+      live: "",
+      code: "",
       image:
         "https://i.pinimg.com/736x/c6/10/a6/c610a6e29045def98bf8ad75d33dfbe7.jpg",
       category: "Websites",
+      number: "08",
     },
     {
       title: "Disease Prediction System",
       description:
-        "A rule-based system for predicting diseases based on symptom data.",
-      tech: ["React", "Node.js", "Api Integration"],
+        "A symptom-based disease prediction application combining rule-based logic with AI-assisted features.",
+      tech: ["React", "Node.js", "MongoDB", "AI"],
       live: "http://disease-system-kxb2.vercel.app/",
       code: "https://github.com/offiongDavid/Disease-System",
       image: disease,
       category: "AI / ML",
+      number: "09",
     },
   ];
 
@@ -107,131 +121,230 @@ const Projects = () => {
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((project) => project.category === activeFilter);
+      : projects.filter(
+          (project) => project.category === activeFilter
+        );
 
   return (
     <section
       id="projects"
-      className="py-28 px-4 md:px-8 border-t border-slate-900"
+      className="border-t border-slate-200 bg-white
+        px-5 py-24 text-[#0B1C39] sm:px-8 sm:py-28
+        lg:px-12 lg:py-32"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <p className="text-blue-500 font-medium uppercase tracking-[0.2em] text-sm mb-4">
-            My Work
+      <div className="mx-auto max-w-7xl">
+
+        {/* SECTION HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55 }}
+          className="mb-12 grid gap-6 lg:grid-cols-[1fr_0.7fr]
+            lg:items-end lg:gap-12"
+        >
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-teal-700" />
+              <p className="text-xs font-semibold uppercase
+                tracking-[0.22em] text-teal-800">
+                Selected Work
+              </p>
+            </div>
+
+            <h2 className="text-4xl font-semibold leading-tight
+              tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              Projects I've
+              <span className="block text-teal-700">
+                worked on.
+              </span>
+            </h2>
+          </div>
+
+          <p className="max-w-lg text-base leading-8 text-slate-600
+            lg:justify-self-end sm:text-lg">
+            A selection of websites and applications I've built,
+            covering frontend development, full-stack features,
+            and AI-focused projects.
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Featured
-            <span className="block text-teal-400">Projects</span>
-          </h2>
-          <p className="text-slate-400 text-lg leading-8 max-w-3xl">
-            A selection of projects I’ve built focusing on frontend development,
-            UI design, and user experience.
+        </motion.div>
+
+        {/* FILTERS */}
+        <div className="mb-10 flex flex-wrap gap-2.5">
+          {filters.map((filter) => {
+            const isActive = activeFilter === filter;
+
+            return (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActiveFilter(filter)}
+                aria-pressed={isActive}
+                className={`border px-4 py-2.5 text-sm font-medium
+                  transition-colors duration-200 ${
+                    isActive
+                      ? "border-[#0B1C39] bg-[#0B1C39] text-white"
+                      : "border-slate-200 bg-white text-slate-600 hover:border-teal-700 hover:text-teal-800"
+                  }`}
+              >
+                {filter}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* PROJECT COUNT */}
+        <div className="mb-6 flex items-center justify-between
+          border-b border-slate-200 pb-4">
+          <p className="text-sm text-slate-500">
+            {activeFilter === "All" ? "All projects" : activeFilter}
+          </p>
+
+          <p className="text-xs font-medium tabular-nums text-slate-500">
+            {String(filteredProjects.length).padStart(2, "0")} projects
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border ${
-                activeFilter === filter
-                  ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-slate-900/60 text-slate-300 border-slate-700 hover:border-blue-500/50 hover:text-white"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+        {/* PROJECT GRID */}
+        <motion.div
+          layout
+          className="grid gap-x-6 gap-y-12 sm:grid-cols-2
+            lg:grid-cols-3 lg:gap-x-7 lg:gap-y-14"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.article
+                layout
+                key={project.number}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.25 }}
+                className="group min-w-0"
+              >
+                {/* PROJECT IMAGE */}
+                <div className="relative mb-5 aspect-[5/3]
+                  overflow-hidden border border-slate-200
+                  bg-slate-100">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    loading="lazy"
+                    className="h-full w-full object-cover
+                      object-center transition-transform
+                      duration-500 group-hover:scale-[1.035]"
+                  />
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              className="group rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-xl overflow-hidden hover:border-blue-500/40 transition-all duration-300"
-            >
-              {/* Project Image */}
-              <div className="h-44 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+                  <span className="absolute left-3 top-3
+                    bg-white/95 px-2.5 py-1.5 text-[11px]
+                    font-semibold tracking-wide text-[#0B1C39]">
+                    {project.category}
+                  </span>
+                </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                <p className="text-slate-400 text-sm leading-6 mb-5">
+                {/* TITLE AND DESCRIPTION */}
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-lg font-semibold
+                    leading-snug tracking-tight
+                    transition-colors group-hover:text-teal-800">
+                    {project.title}
+                  </h3>
+
+                  <span className="pt-1 text-xs tabular-nums
+                    text-slate-400">
+                    {project.number}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm leading-6 text-slate-600">
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, idx) => (
+                {/* TECHNOLOGIES */}
+                <div className="mt-4 flex flex-wrap gap-x-2
+                  gap-y-2">
+                  {project.tech.map((tech) => (
                     <span
-                      key={idx}
-                      className="text-xs px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300"
+                      key={tech}
+                      className="border border-slate-200
+                        px-2.5 py-1 text-[11px]
+                        font-medium text-slate-600"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Buttons */}
-                <div className="flex gap-3">
-                  {project.code ? (
-                    <a
-                      href={project.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-700 text-slate-200 hover:border-blue-500 hover:text-blue-500 transition-all duration-300"
-                    >
-                      <FaGithub />
-                      Code
-                    </a>
-                  ) : (
-                    <div className="flex-1" />
-                  )}
-
-                  {project.live ? (
+                {/* PROJECT LINKS */}
+                <div className="mt-5 flex items-center gap-5
+                  border-t border-slate-200 pt-4">
+                  {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300"
+                      className="inline-flex items-center gap-2
+                        text-sm font-semibold text-teal-800
+                        transition-colors hover:text-teal-600"
                     >
-                      <FaExternalLinkAlt />
-                      Live
+                      Live preview
+                      <FiExternalLink />
                     </a>
-                  ) : (
-                    <div className="flex-1 px-4 py-2.5 rounded-xl bg-slate-800 text-slate-500 text-center text-sm">
-                      Coming Soon
-                    </div>
+                  )}
+
+                  {project.code && (
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2
+                        text-sm font-medium text-slate-600
+                        transition-colors hover:text-[#0B1C39]"
+                    >
+                      <FaGithub className="text-base" />
+                      Source
+                    </a>
+                  )}
+
+                  {!project.live && !project.code && (
+                    <span className="text-sm text-slate-400">
+                      Preview coming soon
+                    </span>
+                  )}
+
+                  {project.live && !project.code && (
+                    <span className="text-xs text-slate-400">
+                      Public demo
+                    </span>
                   )}
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
-        {/* Empty state */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-20 text-slate-500">
-            No projects found in this category.
-          </div>
-        )}
-
-        {/* Bottom note */}
-        <div className="mt-16 text-center">
-          <p className="text-slate-500">
-            More projects coming soon... constantly building and improving
+        {/* FOOTER NOTE */}
+        <div className="mt-16 flex flex-col gap-3 border-t
+          border-slate-200 pt-7 sm:flex-row
+          sm:items-center sm:justify-between">
+          <p className="text-sm leading-6 text-slate-500">
+            Each project represents a different problem, approach,
+            and opportunity to learn.
           </p>
+
+          <a
+            href="https://github.com/offiongDavid"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-2
+              text-sm font-semibold text-[#0B1C39]
+              transition-colors hover:text-teal-800"
+          >
+            More on GitHub
+            <FaArrowRight />
+          </a>
         </div>
+
       </div>
     </section>
   );

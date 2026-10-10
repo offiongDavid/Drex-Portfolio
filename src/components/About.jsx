@@ -1,140 +1,256 @@
-import { FaCode, FaLaptopCode, FaPalette } from "react-icons/fa";
+
+import {
+  FaCode,
+  FaServer,
+  FaDatabase,
+  FaArrowRight,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+} from "react-icons/fa";
+import { SiExpress, SiMongodb, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const About = () => {
-  const highlights = [
+  const technologies = [
+    { name: "React", icon: <FaReact /> },
+    { name: "Node.js", icon: <FaNodeJs /> },
+    { name: "Express", icon: <SiExpress /> },
+    { name: "MongoDB", icon: <SiMongodb /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+    { name: "Git", icon: <FaGitAlt /> },
+  ];
+
+  const capabilities = [
     {
+      number: "01",
       icon: <FaCode />,
-      title: "Clean & Maintainable Code",
+      title: "Building the interface",
       description:
-        "I write component-driven React code that’s easy to extend. Clear structure, consistent patterns, and thoughtful state management so projects don’t become unmaintainable after a few months.",
+        "I turn ideas and requirements into responsive interfaces using React and modern CSS. I focus on reusable components, clear layouts, and interactions that make sense to the people using the application.",
+      tags: ["React", "JavaScript", "Responsive UI"],
     },
     {
-      icon: <FaLaptopCode />,
-      title: "Responsive by Default",
+      number: "02",
+      icon: <FaServer />,
+      title: "Making the application work",
       description:
-        "Every interface I build works properly on mobile, tablet, and desktop. I treat responsive design as a core requirement, not an afterthought.",
+        "Beyond the interface, I work with Node.js and Express to build APIs, handle application logic, manage authentication, and connect the different parts of a web application.",
+      tags: ["Node.js", "Express", "REST APIs"],
     },
     {
-      icon: <FaPalette />,
-      title: "UI with Intention",
+      number: "03",
+      icon: <FaDatabase />,
+      title: "Working with data",
       description:
-        "I care about the small details — spacing, hierarchy, transitions, and feedback states. The goal is interfaces that feel clear and polished, not just “pretty”.",
+        "I build data-driven features that connect the application to its database. I pay attention to how information is structured, validated, stored, and retrieved so the overall workflow remains understandable.",
+      tags: ["MongoDB", "Mongoose", "Data Handling"],
     },
   ];
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <section
       id="about"
-      className="py-32 px-4 md:px-8 border-t border-slate-900 relative overflow-hidden"
+      className="relative overflow-hidden border-t border-slate-200
+        bg-[#F8F6F1] px-5 py-24 text-[#0B1C39]
+        sm:px-8 sm:py-28 lg:px-12 lg:py-32"
     >
-      {/* soft background glow */}
-      <div className="absolute w-[400px] h-[400px] bg-teal-500/10 blur-[120px] rounded-full -top-40 -right-40" />
+      {/* Subtle decorative accent */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 top-20
+          h-80 w-80 rounded-full bg-teal-500/[0.07] blur-3xl"
+      />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* HEADER */}
+      <div className="relative mx-auto max-w-7xl">
+        {/* SECTION INTRODUCTION */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65 }}
+          className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]
+            lg:items-end lg:gap-16"
         >
-          <p className="text-blue-500 font-medium uppercase tracking-[0.2em] text-sm mb-4">
-            About Me
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Software developer focused on
-            <span className="block text-teal-400">clean interfaces & solid code</span>
-          </h2>
-
-          <p className="text-slate-400 text-lg leading-8 max-w-3xl">
-            I build modern web applications with React and Tailwind CSS. My focus is
-            on creating fast, accessible, and maintainable applications that feel
-            good to use and are straightforward to work on later.
-          </p>
-        </motion.div>
-
-        {/* MAIN GRID */}
-        <div className="grid lg:grid-cols-2 gap-14 items-start">
-          {/* LEFT SIDE */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            {/* WHO I AM */}
-            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl p-8 hover:border-slate-700 transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-4">What I do</h3>
-
-              <p className="text-slate-400 leading-8 mb-4">
-                I specialize in building responsive frontend applications using
-                React, modern JavaScript, and Tailwind CSS. Most of my work
-                involves turning designs and ideas into clean, functional
-                interfaces that perform well across devices.
-              </p>
-
-              <p className="text-slate-400 leading-8">
-                I’m particularly interested in component architecture, thoughtful
-                animations, and building design systems that stay consistent as
-                projects grow. I prefer solutions that are simple to understand
-                and easy to maintain.
+          <div>
+            <div className="mb-7 flex items-center gap-3">
+              <span className="h-px w-10 bg-teal-700" />
+              <p
+                className="text-xs font-bold uppercase
+                  tracking-[0.22em] text-teal-800"
+              >
+                A little about my work
               </p>
             </div>
 
-            {/* TECH STACK */}
-            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
-              <h3 className="text-xl font-bold mb-5">Core Technologies</h3>
+            <h2
+              className="max-w-3xl text-4xl font-semibold
+                leading-[1.12] tracking-[-0.045em]
+                sm:text-5xl lg:text-6xl"
+            >
+              I build the systems
+              <span className="block text-teal-700">
+                behind the experience.
+              </span>
+            </h2>
+          </div>
 
-              <div className="flex flex-wrap gap-3">
-                {[
-                  "React",
-                  "JavaScript",
-                  "TypeScript",
-                  "Tailwind CSS",
-                  "HTML5",
-                  "CSS3",
-                  "Git",
-                  "GitHub",
-                  "Figma",
-                ].map((tech) => (
+          <div className="max-w-xl lg:justify-self-end">
+            <p className="text-base leading-8 text-slate-600 sm:text-lg">
+              I’m a Full-Stack Web Developer with a B.Sc. in
+              Computer Science. I enjoy taking an idea from its
+              first interface to the logic and data that make it
+              work as a complete application.
+            </p>
+
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              My approach is practical: understand the problem,
+              build the right features, and make sure the different
+              parts of the application work together. I care about
+              the details users notice and the structure developers
+              have to maintain.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* FULL-STACK WORKFLOW */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-16 grid overflow-hidden border
+            border-slate-200 bg-white sm:grid-cols-3"
+        >
+          {capabilities.map((item, index) => (
+            <motion.article
+              key={item.number}
+              whileHover={{ backgroundColor: "#F1F8F6" }}
+              transition={{ duration: 0.2 }}
+              className={`group p-6 sm:p-7 lg:p-9 ${
+                index !== 0
+                  ? "border-t border-slate-200 sm:border-l sm:border-t-0"
+                  : ""
+              }`}
+            >
+              <div className="mb-9 flex items-center justify-between">
+                <span className="text-sm font-semibold text-teal-800">
+                  {item.number}
+                </span>
+
+                <span
+                  className="flex h-11 w-11 items-center
+                    justify-center bg-[#E5F2EF] text-lg
+                    text-teal-800 transition-colors
+                    group-hover:bg-[#0B1C39] group-hover:text-white"
+                >
+                  {item.icon}
+                </span>
+              </div>
+
+              <h3 className="text-xl font-semibold tracking-tight">
+                {item.title}
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
+                {item.description}
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
                   <span
-                    key={tech}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-sm border border-slate-700 hover:border-blue-500/40 hover:text-white transition-all duration-300"
+                    key={tag}
+                    className="border border-slate-200 px-2.5
+                      py-1.5 text-xs font-medium text-slate-600"
                   >
-                    {tech}
+                    {tag}
                   </span>
                 ))}
               </div>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        {/* TECHNOLOGY STRIP */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mt-20 border-y border-slate-200 py-8"
+        >
+          <div className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]
+            lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em]
+                text-teal-800">
+                Tools I work with
+              </p>
+
+              <h3 className="mt-2 text-xl font-semibold">
+                My everyday toolkit
+              </h3>
             </div>
-          </motion.div>
 
-          {/* RIGHT SIDE */}
-          <div className="grid gap-6">
-            {highlights.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                whileHover={{ y: -6 }}
-                className="rounded-3xl border border-slate-800 bg-slate-900/60 p-7 hover:border-blue-500/40 transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center text-blue-500 text-xl mb-5">
-                  {item.icon}
+            <div className="flex flex-wrap gap-3">
+              {technologies.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="flex items-center gap-2.5 border
+                    border-slate-200 bg-white px-3.5 py-3
+                    text-sm font-medium text-slate-700
+                    transition-colors hover:border-teal-700
+                    hover:text-teal-800"
+                >
+                  <span className="text-lg text-teal-800">
+                    {tech.icon}
+                  </span>
+                  {tech.name}
                 </div>
-
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-
-                <p className="text-slate-400 leading-7">{item.description}</p>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* CLOSING STATEMENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mt-16 flex flex-col gap-5
+            sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <p className="text-lg font-medium tracking-tight sm:text-xl">
+              Good software is more than a working interface.
+            </p>
+            <p className="mt-2 text-sm leading-7 text-slate-600">
+              It is how the design, logic, and data come together
+              to solve a real problem.
+            </p>
+          </div>
+
+          <a
+            href="#projects"
+            className="group inline-flex w-fit shrink-0
+              items-center gap-3 border-b-2 border-teal-700
+              pb-2 text-sm font-semibold text-[#0B1C39]
+              transition-colors hover:text-teal-800"
+          >
+            Explore my projects
+            <FaArrowRight
+              className="transition-transform
+                group-hover:translate-x-1"
+            />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
